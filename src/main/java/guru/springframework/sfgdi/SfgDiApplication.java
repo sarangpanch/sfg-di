@@ -1,6 +1,7 @@
 package guru.springframework.sfgdi;
 
 import guru.springframework.sfgdi.controllers.*;
+import guru.springframework.sfgdi.examplebeans.BlazeServiceUrls;
 import guru.springframework.sfgdi.examplebeans.FakeDataSource;
 import guru.springframework.sfgdi.examplebeans.FakeJmsSource;
 import org.springframework.boot.SpringApplication;
@@ -42,6 +43,9 @@ public class SfgDiApplication {
 
 		FakeJmsSource jmsSource = (FakeJmsSource) ctx.getBean(FakeJmsSource.class);
 		System.out.println("Jms UserName:-----------"+ jmsSource.getUser());
+
+		BlazeServiceUrls ruleserviceUrls = (BlazeServiceUrls) ctx.getBean("blazeServiceUrls");
+		System.out.println("Blaze url:" + ruleserviceUrls.getEligUrl());
 
 
 

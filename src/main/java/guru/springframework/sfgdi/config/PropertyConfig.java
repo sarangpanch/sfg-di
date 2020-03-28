@@ -1,5 +1,6 @@
 package guru.springframework.sfgdi.config;
 
+import guru.springframework.sfgdi.examplebeans.BlazeServiceUrls;
 import guru.springframework.sfgdi.examplebeans.FakeDataSource;
 import guru.springframework.sfgdi.examplebeans.FakeJmsSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,8 @@ public class PropertyConfig {
     private String jmsPassword;
     @Value("${jms.guru.dburl}")
     private String jmsUrl;
+    @Value("${eligiblity.url}")
+    private String eligServiceUrl;
 
     @Bean
     public FakeDataSource fakeDataSource(){
@@ -56,6 +59,13 @@ public class PropertyConfig {
         dbSource.setPassword(this.jmsPassword);
 
         return dbSource;
+    }
+
+    @Bean
+    public BlazeServiceUrls blazeServiceUrls(){
+        BlazeServiceUrls blazeServiceUrls = new BlazeServiceUrls();
+        blazeServiceUrls.setEligUrl(this.eligServiceUrl);
+        return blazeServiceUrls;
     }
 
     @Bean
