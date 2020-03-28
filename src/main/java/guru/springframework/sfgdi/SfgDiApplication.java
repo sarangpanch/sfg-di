@@ -41,7 +41,6 @@ public class SfgDiApplication {
 		System.out.println("DB UserName:-----------"+ dbSource.getUser());
 
 		FakeJmsSource jmsSource = (FakeJmsSource) ctx.getBean(FakeJmsSource.class);
-
 		System.out.println("Jms UserName:-----------"+ jmsSource.getUser());
 
 
